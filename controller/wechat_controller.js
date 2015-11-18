@@ -5,11 +5,13 @@
 "use strict";
 var wechat = require('wechat');
 var User = require('../model').User;
-var Sign=require('../model').Sign;
+var Sign = require('../model').Sign;
 var config = require('../config/wechat.json');
-module.exports = wechat(config, function (req, res, next) {
+module.exports = wechat(config, deal);
+var deal = wechat.text(function (message, req, res, next) {
   // 微信输入信息都在req.weixin上
   var message = req.weixin;
+  console.log('wehchat_message:', message);
   var open_id = message.FromUserName;
   User.findOne({open_id: open_id}, function (err, result) {
     if (err) {
@@ -17,8 +19,14 @@ module.exports = wechat(config, function (req, res, next) {
     }
     else {
       if (result == null) {
-        var sign =new Sign();
+        var user = new User({open_id: open_id, name: message.Content})
+        user.save();
+        var sign = new Sign();
       }
     }
   })
+}).event(function (message, req, res, next) {
+  if (message.Event === 'subscribe') {
+    res.reply('欢迎关注!')
+  }
 });
