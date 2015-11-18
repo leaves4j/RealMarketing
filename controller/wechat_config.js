@@ -3,6 +3,7 @@
  * Description:
  */
 "use strict";
+var wechat_config=require('../config/wechat.json');
 module.exports = {
   wechat_check: function (req, res) {
     var signature = req.query.signature;
