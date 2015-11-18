@@ -3,6 +3,7 @@
  * Description:
  */
 "use strict";
+var crypto=require('crypto');
 var wechat_config=require('../config/wechat.json');
 module.exports = {
   wechat_check: function (req, res) {
