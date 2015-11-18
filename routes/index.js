@@ -10,6 +10,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 router.get('/wechat',controller.wechat_check_controller.wechat_check);
-router.post('/wecht',controller.wechat_controller)
+router.post('/wechat',controller.wechat_controller)
 
 module.exports = router;
