@@ -18,7 +18,7 @@ var deal = wechat.text(function (message, req, res, next) {
     }
     else {
       if (result == null) {
-        var user = new User({open_id: open_id, name: message.Content})
+        var user = new User({open_id: open_id, username: message.Content})
         user.save();
         var sign = new Sign();
       }
