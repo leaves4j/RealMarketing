@@ -17,6 +17,7 @@ var deal = wechat.text(function (message, req, res, next) {
       next(err);
     }
     else {
+      console.log('result',result);
       if (result == null) {
         var user = new User({open_id: open_id, username: message.Content})
         user.save();
