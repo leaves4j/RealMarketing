@@ -21,6 +21,7 @@ var deal = wechat.text(function (message, req, res, next) {
         var user = new User({open_id: open_id, username: message.Content})
         user.save();
         var sign = new Sign();
+        res.reply('我记住了!')
       }
     }
   })
