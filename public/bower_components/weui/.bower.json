@@ -1,0 +1,14 @@
+{
+  "name": "weui",
+  "homepage": "https://github.com/weui/weui",
+  "_release": "162b87def5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "162b87def5917a311a7a47d519dbbfda2d5879e1"
+  },
+  "_source": "git://github.com/weui/weui.git",
+  "_target": "*",
+  "_originalSource": "weui",
+  "_direct": true
+}

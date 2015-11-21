@@ -17,19 +17,56 @@ var deal = wechat.text(function (message, req, res, next) {
       next(err);
     }
     else {
-      console.log('result',result);
+      console.log('result', result);
       if (result == null) {
-        var user = new User({open_id: open_id, username: message.Content})
-        user.save();
-        var sign = new Sign();
-        res.reply('我记住了!')
+        if (message.Content === '签到') {
+          res.reply('请您先告诉我您的姓名或昵称');
+        }
+        else {
+          var user = new User({open_id: open_id, username: message.Content});
+          user.save();
+          res.reply('%s,您好,回复"签到"完成今天的签到吧', message.Content);
+        }
       }
+      else {
+        if (message.Content === '签到') {
+          var sign_data = {user: result._id, period: 3};
+          Sign.findOne(sign_data, function (err, result) {
+            if (err)
+              next(err);
+            else {
+              if (result == null) {
+                //var start_time=new Date();
+                //start_time.setHours(20);
+                //start_time.setMinutes(30);
+                //start_time.setSeconds(0);
+                //if(start_time.getDay()==7&&(new Date()>=start_time)){
+                //  var sign= new Sign(sign_data);
+                //  sign.save();
+                //}
+                //else{
+                //  res.reply('请您于周日晚上八点半之后签到');
+                //}
+                var sign = new Sign(sign_data);
+                sign.save();
+              }
+              else {
+                res.reply('您是成功签到,<a href="%s"点击这里查看详情', '');
+               // res.reply('您是今天第%s位签到,<a href="%s"点击这里查看详情', 10, '');
+              }
+            }
+          })
+
+        }
+      }
+
+
     }
   })
 }).event(function (message, req, res, next) {
   console.log('wehchat_message:', message);
   if (message.Event === 'subscribe') {
-    res.reply('欢迎关注!')
+    res.reply('初次见面,请告诉我怎么称呼您吧(您的姓名或者培训群内的昵称)!')
   }
 });
 module.exports = wechat(config, deal);

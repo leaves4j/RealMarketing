@@ -5,6 +5,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+  console.log(req.query.authcode)
   res.render('index', {title: 'Express'});
 });
 router.get('/wechat', controller.wechat_check_controller.wechat_check);
