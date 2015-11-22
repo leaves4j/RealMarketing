@@ -53,7 +53,7 @@ var deal = wechat.text(function (message, req, res, next) {
                 sign.save();
               }
 
-              res.reply('签到成功,<a href="' + host + 'sign/"' + open_id + '点击这里查看情况吧');
+              res.reply('签到成功,<a href="' + host + 'sign/' + open_id + '" >点击这里查看情况吧</a>');
               // res.reply('您是今天第%s位签到,<a href="%s"点击这里查看详情', 10, '');
 
             }
