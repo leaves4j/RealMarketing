@@ -34,10 +34,10 @@ module.exports = {
         var i = 0;
 
         var render_data = results;
-        render_data.sign_list.forEach(function (item) {
+        render_data.sign_list.map(function (item) {
           i++;
           console.log(moment(item.timestamp))
-          item.timestamp = moment(new Date()).format('HH:mm:ss');
+          item.timestamp = moment(item.timestamp).format('HH:mm:ss');
           if (item.user.open_id == open_id) {
             person = item;
             person.rank = i;
