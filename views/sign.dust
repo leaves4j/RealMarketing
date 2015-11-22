@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="yes" name="apple-touch-fullscreen"/>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,minimal-ui">
+  <title>签到列表</title>
+  <link rel="stylesheet" href="../public/bower_components/weui/dist/style/weui.min.css"/>
+  <link rel="stylesheet" href="../public/stylesheets/style.css"/>
+</head>
+<body ontouchstart>
+<div class="my">
+  <div class="info">
+    <div class="font-left">将小罗</div>
+    <div class="font-right">
+      第<span class="number">1</span>名<br>
+      提前<span class="number">18</span>分
+    </div>
+  </div>
+  <div class="msg">阿舒服多舒服撒撒飞洒发</div>
+</div>
+
+<div>
+  <div class="weui_cells">
+    <div class="weui_cell">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>签到情况</p>
+      </div>
+      <div class="weui_cell_ft">
+        {all_sign_count}/123
+      </div>
+    </div>
+    <div class="weui_cell">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>按时签到情况</p>
+      </div>
+      <div class="weui_cell_ft">
+        {time_sign_count}/123
+      </div>
+    </div>
+  </div>
+
+  <div class="weui_cells_title">签到详情</div>
+
+  <div class="weui_cells">
+    {#sign_list}
+      <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+          <p>{user.username}</p>
+        </div>
+        <div class="weui_cell_ft">
+          {timestamp}
+        </div>
+      </div>
+    {/sign_list}
+  </div>
+</div>
+</body>
+</html>
