@@ -38,17 +38,14 @@ var deal = wechat.text(function (message, req, res, next) {
 
             else {
               if (result == null) {
-                //var start_time=new Date();
-                //start_time.setHours(20);
-                //start_time.setMinutes(30);
-                //start_time.setSeconds(0);
-                //if(start_time.getDay()==7&&(new Date()>=start_time)){
-                //  var sign= new Sign(sign_data);
-                //  sign.save();
-                //}
-                //else{
-                //  res.reply('请您于周日晚上八点半之后签到');
-                //}
+                var now_time = new Date();
+                if (now_time.getDay() == 7 && (new Date() >= require('../config/system.json').pre)) {
+                  var sign = new Sign(sign_data);
+                  sign.save();
+                }
+                else {
+                  res.reply('请您于周日晚上八点半之后签到');
+                }
                 var sign = new Sign(sign_data);
                 sign.save();
               }
