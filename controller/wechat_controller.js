@@ -26,7 +26,7 @@ var deal = wechat.text(function (message, req, res, next) {
         else {
           var user = new User({open_id: open_id, username: message.Content});
           user.save();
-          res.reply(message.Content + ',您好,回复"签到"完成今天的签到吧');
+          res.reply(message.Content + ',您好!\n回复"签到"完成今天的签到吧');
         }
       }
       else {
@@ -65,7 +65,7 @@ var deal = wechat.text(function (message, req, res, next) {
 }).event(function (message, req, res, next) {
   console.log('wehchat_message:', message);
   if (message.Event === 'subscribe') {
-    res.reply('初次见面,请告诉我怎么称呼您吧(您的姓名或者培训群内的昵称)!')
+    res.reply('初次见面,请告诉我怎么称呼您吧\n(您的姓名或者培训群内的昵称)!')
   }
 });
 module.exports = wechat(config, deal);
