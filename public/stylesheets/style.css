@@ -3,13 +3,11 @@ body {
 
 .my .info {
   display: flex;
-  display: -webkit-flex;
-  /* Safari */ }
+  display: -webkit-flex; }
   .my .info .font-left {
     padding: 10px;
     flex: 1;
     -webkit-flex: 1;
-    width: 50%;
     color: #42B2FB;
     text-align: center;
     line-height: 60px;
@@ -19,7 +17,6 @@ body {
     padding: 10px;
     flex: 1;
     -webkit-flex: 1;
-    width: 50%;
     text-align: center;
     font-size: 20px;
     line-height: 30px; }
