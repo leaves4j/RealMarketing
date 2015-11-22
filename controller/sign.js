@@ -30,11 +30,10 @@ module.exports = {
         //next(err)
       }
       else {
-        var person={};
+        var person = {};
         var i = 0;
         var sign_list = results.sign_list.forEach(function (item) {
           i++;
-
           item.timestamp = moment(item.timestamp).format('HH:mm:ss');
           if (item.user.open_id == open_id) {
             person = item;
@@ -42,9 +41,10 @@ module.exports = {
           }
           return item;
         });
-        var render_data=results;
-        render_data.sign_list=sign_list;
-        render_data.person=person;
+        var render_data = results;
+        render_data.sign_list = sign_list;
+        render_data.person = person;
+        console.log('render_data',render_data)
         res.render('sign.dust', render_data);
       }
     })
