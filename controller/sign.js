@@ -42,6 +42,7 @@ module.exports = {
             person = item;
             person.rank = i;
           }
+          console.log(item)
           return item;
         });
         render_data.person = person;
