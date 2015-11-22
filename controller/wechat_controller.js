@@ -24,7 +24,7 @@ var deal = wechat.text(function (message, req, res, next) {
           res.reply('请您先告诉我您的姓名或昵称');
         }
         else {
-          var user = new User({open_id: open_id, username: message.Content});
+          var user = new User({open_id: open_id, username: message.Content,timestamp:Date.now()''});
           user.save();
           res.reply(message.Content + ',您好!\n回复"签到"完成今天的签到吧');
         }

@@ -10,6 +10,6 @@ var ObjectId = Schema.Types.ObjectId;
 var SignSchema = new Schema({
   user: {type: ObjectId, ref: 'user'},
   period:{type:Number},
-  timestamp: {type: Date, default: Date.now()}
+  timestamp: {type: Date}
 });
 module.exports = mongoose.model('sign', SignSchema);
