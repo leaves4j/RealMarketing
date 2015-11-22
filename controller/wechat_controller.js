@@ -39,7 +39,7 @@ var deal = wechat.text(function (message, req, res, next) {
             else {
               if (result == null) {
                 var now_time = new Date();
-                if (now_time.getDay() == 7 && (new Date() >= require('../config/system.json').pre)) {
+                if (now_time.getDay() == 7 && (new Date() >= new Date(require('../config/system.json').pre))) {
                   var sign = new Sign(sign_data);
                   sign.save();
                 }
