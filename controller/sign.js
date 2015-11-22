@@ -42,7 +42,6 @@ module.exports = {
           return item;
         });
         var render_data = results;
-        render_data.sign_list = sign_list;
         render_data.person = person;
         console.log('render_data', render_data)
         res.render('sign.dust', render_data);
