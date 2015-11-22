@@ -51,7 +51,7 @@
           <p>{user.username}</p>
         </div>
         <div class="weui_cell_ft">
-          {timestamp_h}
+          {user.timestamp_h}
         </div>
       </div>
     {/sign_list}
