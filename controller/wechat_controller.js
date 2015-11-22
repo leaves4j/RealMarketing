@@ -68,7 +68,7 @@ var deal = wechat.text(function (message, req, res, next) {
 }).event(function (message, req, res, next) {
   console.log('wehchat_message:', message);
   if (message.Event === 'subscribe') {
-    res.reply('初次见面,请告诉我怎么称呼您吧!\n(您的姓名或者群内的昵称)!')
+    res.reply('您好,初次见面,请告诉我怎么称呼您吧!\n(您的姓名或者群内的昵称)')
   }
 });
 module.exports = wechat(config, deal);
