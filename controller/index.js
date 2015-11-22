@@ -5,5 +5,6 @@
 "use strict";
 module.exports={
   wechat_check_controller:require('./wechat_config'),
-  wechat_controller:require('./wechat_controller')
+  wechat_controller:require('./wechat_controller'),
+  sign:require('./sign')
 }

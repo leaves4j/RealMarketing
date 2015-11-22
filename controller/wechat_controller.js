@@ -7,6 +7,7 @@ var wechat = require('wechat');
 var User = require('../model').User;
 var Sign = require('../model').Sign;
 var config = require('../config/wechat.json');
+var host = require('../config/system.json').host;
 
 var deal = wechat.text(function (message, req, res, next) {
   // 微信输入信息都在req.weixin上
@@ -25,7 +26,7 @@ var deal = wechat.text(function (message, req, res, next) {
         else {
           var user = new User({open_id: open_id, username: message.Content});
           user.save();
-          res.reply('%s,您好,回复"签到"完成今天的签到吧', message.Content);
+          res.reply(message.Content + ',您好,回复"签到"完成今天的签到吧');
         }
       }
       else {
@@ -34,6 +35,7 @@ var deal = wechat.text(function (message, req, res, next) {
           Sign.findOne(sign_data, function (err, result) {
             if (err)
               next(err);
+
             else {
               if (result == null) {
                 //var start_time=new Date();
@@ -50,10 +52,10 @@ var deal = wechat.text(function (message, req, res, next) {
                 var sign = new Sign(sign_data);
                 sign.save();
               }
-              else {
-                res.reply('您是成功签到,<a href="%s"点击这里查看详情', '');
-               // res.reply('您是今天第%s位签到,<a href="%s"点击这里查看详情', 10, '');
-              }
+
+              res.reply('签到成功,<a href="' + host + 'sign/"' + open_id + '点击这里查看情况吧');
+              // res.reply('您是今天第%s位签到,<a href="%s"点击这里查看详情', 10, '');
+
             }
           })
 
