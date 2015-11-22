@@ -36,7 +36,7 @@ module.exports = {
         var render_data = results;
         render_data.sign_list=results.sign_list.map(function (item) {
           i++;
-          console.log(item)
+          console.log(moment(new Date(item.timestamp)).format('HH:mm:ss'))
           item.timestamp = moment(new Date(item.timestamp)).format('HH:mm:ss');
           if (item.user.open_id == open_id) {
             person = item;
