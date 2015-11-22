@@ -32,8 +32,11 @@ module.exports = {
       else {
         var person = {};
         var i = 0;
-        results.sign_list.forEach(function (item) {
+
+        var render_data = results;
+        render_data.sign_list.forEach(function (item) {
           i++;
+          console.log(moment(item.timestamp))
           item.timestamp = moment(new Date(item.timestamp)).format('HH:mm:ss');
           if (item.user.open_id == open_id) {
             person = item;
@@ -41,7 +44,6 @@ module.exports = {
           }
           return item;
         });
-        var render_data = results;
         render_data.person = person;
         console.log('render_data', render_data)
         res.render('sign.dust', render_data);
