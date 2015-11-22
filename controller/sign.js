@@ -34,7 +34,7 @@ module.exports = {
         var i = 0;
 
         var render_data = results;
-        render_data.sign_list.map(function (item) {
+        render_data.sign_list=render_data.sign_list.map(function (item) {
           i++;
           console.log(moment(item.timestamp))
           item.timestamp = moment(item.timestamp).format('HH:mm:ss');
