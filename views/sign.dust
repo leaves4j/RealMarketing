@@ -13,13 +13,13 @@
 <body ontouchstart>
 <div class="my">
   <div class="info">
-    <div class="font-left">将小罗</div>
+    <div class="font-left">{person.user.username}</div>
     <div class="font-right">
-      第<span class="number">1</span>名<br>
-      提前<span class="number">18</span>分
+      第<span class="number">{person.rank}</span>名<br>
+      <span class="number">{person.timestamp}</span>
     </div>
   </div>
-  <div class="msg">阿舒服多舒服撒撒飞洒发</div>
+  {!<div class="msg">阿舒服多舒服撒撒飞洒发</div>!}
 </div>
 
 <div>
