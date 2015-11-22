@@ -29,7 +29,7 @@
         <p>签到情况</p>
       </div>
       <div class="weui_cell_ft">
-        {all_sign_count}/123
+        {all_sign_count}/346
       </div>
     </div>
     <div class="weui_cell">
@@ -37,7 +37,7 @@
         <p>按时签到情况</p>
       </div>
       <div class="weui_cell_ft">
-        {time_sign_count}/123
+        {time_sign_count}/346
       </div>
     </div>
   </div>
