@@ -13,7 +13,7 @@ module.exports = {
     async.auto({
       sign_list: function (cb) {
         console.log(1);
-        Sign.find().populate('user').sort({'_id': -1}).exec(cb)
+        Sign.find().populate('user').sort({'_id': 1}).exec(cb)
       },
       all_sign_count: function (cb) {
         console.log(12);
