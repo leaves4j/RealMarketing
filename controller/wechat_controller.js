@@ -39,15 +39,15 @@ var deal = wechat.text(function (message, req, res, next) {
             else {
               if (result == null) {
                 var now_time = new Date();
-                if (now_time.getDay() == 7 && (new Date() >= new Date(require('../config/system.json').pre))) {
-                  var sign = new Sign(sign_data);
-                  sign.save();
-                }
-                else {
-                  res.reply('请您于周日晚上八点半之后签到');
-                }
+                //if (now_time.getDay() == 7 && (new Date() >= new Date(require('../config/system.json').pre))) {
                 var sign = new Sign(sign_data);
                 sign.save();
+                //}
+                //else {
+                //  res.reply('请您于周日晚上八点半之后签到');
+                //}
+                //var sign = new Sign(sign_data);
+                //sign.save();
               }
 
               res.reply('签到成功,<a href="' + host + 'sign/' + open_id + '" >点击这里</a>查看详情吧');
