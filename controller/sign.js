@@ -17,11 +17,11 @@ module.exports = {
       },
       all_sign_count: function (cb) {
         console.log(12);
-        Sign.count({}, cb)
+        Sign.count({period: 4}, cb)
       },
       time_sign_count: function (cb) {
         console.log(14);
-        Sign.find().where('timestamp').lte(new Date(require('../config/system.json').start)).count().exec(cb)
+        Sign.find({period: 4}).where('timestamp').lte(new Date(require('../config/system.json').start)).count().exec(cb)
       }
     }, function (err, results) {
       console.log(err);
