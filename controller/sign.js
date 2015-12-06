@@ -13,7 +13,7 @@ module.exports = {
     async.auto({
       sign_list: function (cb) {
         console.log(1);
-        Sign.find().populate('user').sort({'_id': 1}).exec(cb)
+        Sign.find({period: 4}).populate('user').sort({'_id': 1}).exec(cb)
       },
       all_sign_count: function (cb) {
         console.log(12);
@@ -34,11 +34,11 @@ module.exports = {
         var i = 0;
 
         var render_data = results;
-        render_data.sign_list=results.sign_list.map(function (item) {
+        render_data.sign_list = results.sign_list.map(function (item) {
           i++;
           console.log(moment(new Date(item.timestamp)).format('HH:mm:ss'))
 
-          item.timestamp_h=moment(new Date(item.timestamp)).format('HH:mm:ss');
+          item.timestamp_h = moment(new Date(item.timestamp)).format('HH:mm:ss');
           if (item.user.open_id == open_id) {
             person = item;
             person.rank = i;
