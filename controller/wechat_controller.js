@@ -31,7 +31,7 @@ var deal = wechat.text(function (message, req, res, next) {
       }
       else {
         if (message.Content === '签到') {
-          var sign_data = {user: result._id, period: 8};
+          var sign_data = {user: result._id, period: 9};
           Sign.findOne(sign_data, function (err, result) {
             if (err)
               next(err);
